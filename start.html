@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offre Start - neoFuture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-dark: #001F3F;
+            --blue-electric: #0074E4;
+            --orange: #FF8C00;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--orange);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--blue-dark);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url('https://i.ibb.co/Dgbz8J9y/20250905-040725.jpg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 80px;
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--blue-dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .guarantee-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin: 20px 0;
+        }
+        
+        .price-desc {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:before {
+            content: "✓";
+            color: var(--orange);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--orange);
+            color: var(--white);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #e67e00;
+            transform: translateY(-2px);
+        }
+        
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--blue-dark);
+            color: var(--white);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--gray-light);
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 31, 63, 0.05), rgba(0, 31, 63, 0.05));
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--blue-dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--blue-dark);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--orange);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 20px;
+                transition: all 0.3s;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .guarantee-badge {
+                position: relative;
+                margin: 0 auto 20px;
+                display: block;
+                top: 0;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/7Jv3sfFy/f856b54b-7a73-45c9-bc89-0385c7d60755.jpg" alt="neoFuture Logo" class="logo">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="start.html">Offre Start</a></li>
+                <li><a href="pro.html">Offre Pro</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Offre Start</h1>
+            <p>Solution essentielle pour automatiser vos réponses et prendre des commandes 24h/24</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>150.000 GNF</h2>
+                <p>Une solution abordable pour démarrer votre transformation digitale</p>
+            </div>
+            
+            <div class="pricing-card">
+                <img src="https://i.ibb.co/35wgvqb7/20250905-040759.jpg" alt="Garantie 14 jours" class="guarantee-badge">
+                
+                <div class="price">150.000 GNF</div>
+                <p class="price-desc">Investissement unique - Aucun frais mensuel</p>
+                
+                <ul class="features">
+                    <li>Chatbot de base avec réponses automatiques</li>
+                    <li>Prise de commandes simple et intuitive</li>
+                    <li>Intégration avec 1 réseau social au choix</li>
+                    <li>Design minimaliste et professionnel</li>
+                    <li>Installation et configuration incluses</li>
+                    <li>Formation de 1 heure pour votre équipe</li>
+                    <li>Support technique par WhatsApp pendant 15 jours</li>
+                </ul>
+                
+                <a href="#commander" class="btn">Commander maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comparez nos offres</h2>
+                <p>Choisissez la solution qui correspond le mieux à vos besoins</p>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalités</th>
+                        <th>Offre Start</th>
+                        <th>Offre Pro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Prix</td>
+                        <td>150.000 GNF</td>
+                        <td>270.000 GNF</td>
+                    </tr>
+                    <tr>
+                        <td>Chatbot intelligent</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>Prise de commandes</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>Intégrations réseaux sociaux</td>
+                        <td>1 plateforme</td>
+                        <td>3 plateformes</td>
+                    </tr>
+                    <tr>
+                        <td>Menu dynamique</td>
+                        <td>✗</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>Design personnalisé</td>
+                        <td>Minimaliste</td>
+                        <td>Sur mesure</td>
+                    </tr>
+                    <tr>
+                        <td>Support technique</td>
+                        <td>15 jours</td>
+                        <td>1 mois</td>
+                    </tr>
+                    <tr>
+                        <td>Formation</td>
+                        <td>1 heure</td>
+                        <td>3 heures</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="commander">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Commander l'offre Start</h2>
+                <form id="start-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Nom de l'entreprise</label>
+                        <input type="text" id="company" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro WhatsApp</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="platform">Plateforme préférée</label>
+                        <select id="platform" class="form-control" required>
+                            <option value="">Sélectionnez une plateforme</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="facebook">Facebook Messenger</option>
+                            <option value="instagram">Instagram</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Envoyer ma demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>neoFuture</h3>
+                    <p>Solutions digitales sur mesure pour les entreprises locales de Guinée.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="start.html">Offre Start</a>
+                    <a href="pro.html">Offre Pro</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contactez-nous</h3>
+                    <p>Email: contact@neofuture.gn</p>
+                    <p>Téléphone: +224 XXX XXX XXX</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 neoFuture. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/224XXXXXXXXX" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+        📱
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Form submission
+        document.getElementById('start-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous contacterons très rapidement sur WhatsApp.');
+            this.reset();
+        });
+
+        // Simple animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.pricing-card, .comparison-table, .form-container').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+  </html>
