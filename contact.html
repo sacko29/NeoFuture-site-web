@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - neoFuture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-dark: #001F3F;
+            --blue-electric: #0074E4;
+            --orange: #FF8C00;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--orange);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--blue-dark);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url('https://i.ibb.co/YT0SRZ20/20250905-041046.jpg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 80px;
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--blue-dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: var(--gray-light);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 30px;
+            color: var(--blue-dark);
+            font-size: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--orange);
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .contact-details p, .contact-details a {
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-details a:hover {
+            opacity: 1;
+            color: var(--orange);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--blue-dark);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--orange);
+            transform: translateY(-3px);
+        }
+        
+        /* Form Styles */
+        .form-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            margin-bottom: 30px;
+            color: var(--blue-dark);
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--orange);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--orange);
+            color: var(--white);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #e67e00;
+            transform: translateY(-2px);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(0, 31, 63, 0.03);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 300px;
+        }
+        
+        /* Map Section */
+        .map {
+            padding: 80px 0;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--blue-dark);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--orange);
+        }
+        
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social-links a {
+            font-size: 1.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 20px;
+                transition: all 0.3s;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/7Jv3sfFy/f856b54b-7a73-45c9-bc89-0385c7d60755.jpg" alt="neoFuture Logo" class="logo">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="start.html">Offre Start</a></li>
+                <li><a href="pro.html">Offre Pro</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+            <p>Discutons de votre projet et trouvons la solution digitale qui boostera votre business</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Restons en contact</h2>
+                <p>Notre équipe est à votre écoute pour répondre à toutes vos questions</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Nos coordonnées</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/224XXXXXXXXX" target="_blank">+224 XXX XXX XXX</a>
+                            <p>Réponse garantie sous 2 heures</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:contact@neofuture.gn">contact@neofuture.gn</a>
+                            <p>Nous répondons dans les 24 heures</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-details">
+                            <h4>Adresse</h4>
+                            <p>Rue du Commerce, Kaloum</p>
+                            <p>Conakry, Guinée</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h4>Horaires</h4>
+                            <p>Lun - Ven: 8h - 18h</p>
+                            <p>Sam: 9h - 13h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <h3 class="form-title">Envoyez-nous un message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Nom de l'entreprise</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Numéro WhatsApp *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service souhaité *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="chatbot">Création de chatbot</option>
+                                <option value="website">Création de site web</option>
+                                <option value="combo">Pack complet (Site + Chatbot)</option>
+                                <option value="other">Autre service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Budget estimé *</label>
+                            <select id="budget" class="form-control" required>
+                                <option value="">Sélectionnez une fourchette</option>
+                                <option value="150000">Moins de 200.000 GNF</option>
+                                <option value="270000">300.000 - 700.000 GNF</option>
+                                <option value="500000">Plus de 500.000 GNF</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Détails de votre projet *</label>
+                            <textarea id="message" class="form-control" required placeholder="Décrivez votre projet, vos objectifs et toute information utile..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions fréquentes</h2>
+                <p>Quelques réponses aux questions que vous pourriez vous poser</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quel est le délai de création d'un chatbot ?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pour l'offre Start, le délai moyen est de 3 à 5 jours ouvrables. Pour l'offre Pro, comptez 7 à 10 jours selon la complexité de votre projet. Nous travaillons rapidement sans compromettre la qualité.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Proposez-vous un support après la livraison ?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, toutes nos offres incluent une période de support. L'offre Start inclut 15 jours de support, l'offre Pro inclut 1 mois de support prioritaire. Nous proposons également des forfaits de support mensuel pour ceux qui le souhaitent.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment se passe le processus de paiement ?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous demandons généralement 50% à la commande et 50% à la livraison. Nous acceptons les transferts mobiles, les virements bancaires et les paiements en espèces pour les clients basés à Conakry.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Puis-je modifier mon chatbot après la livraison ?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument. Nous vous formons à l'utilisation de l'interface d'administration qui vous permet de modifier les réponses, le menu et autres paramètres. Pour des modifications plus importantes, nous proposons des forfaits de maintenance.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Travailez-vous avec des entreprises en dehors de Conakry ?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nous travaillons avec des clients dans toute la Guinée. Tous nos services peuvent être réalisés à distance via WhatsApp, email et visioconférence. La distance n'est pas un obstacle !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre localisation</h2>
+                <p>Venez nous rencontrer à notre bureau à Conakry</p>
+            </div>
+            
+            <div class="map-container">
+                <p>Carte interactive (à intégrer avec Google Maps ou autre service)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>neoFuture</h3>
+                    <p>Solutions digitales sur mesure pour les entreprises locales de Guinée.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="start.html">Offre Start</a>
+                    <a href="pro.html">Offre Pro</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contactez-nous</h3>
+                    <p>Email: contact@neofuture.gn</p>
+                    <p>Téléphone: +224 XXX XXX XXX</p>
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 neoFuture. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/224XXXXXXXXX" class="whatsapp-float" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+        📱
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons très rapidement sur WhatsApp.');
+            this.reset();
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.querySelector('span:last-child').textContent = '+';
+                });
+                
+                // Open clicked answer if it wasn't already active
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.querySelector('span:last-child').textContent = '-';
+                }
+            });
+        });
+
+        // Simple animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.contact-item, .form-container, .faq-item, .map-container').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+  </html>
